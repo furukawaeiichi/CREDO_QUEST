@@ -11,8 +11,8 @@
   </head>
 
   <body class="body-background">
-    <audio data-turbo-permanent id="bgm" src="app/assets/audios/bgm.mp3" loop></audio>
-    <%# <%= audio_tag "audios/bgm.mp3" autoplay: true %> %>
+    <%# <audio_tag data-turbo-permanent id="bgm" src="public/audios/bgm.mp3" loop></audio> %>
+    <%= audio_tag "/audios/bgm.mp3", autoplay: true, id: "bgm" %>
     <%= yield %>
   </body>
 </html>
