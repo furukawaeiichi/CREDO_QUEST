@@ -11,6 +11,7 @@
   </head>
 
   <body class="body-background">
+    <%= audio_tag "/audios/bgm.mp3", id: "bgm", loop: true, data: { turbo_permanent: true } %>  <%# /から指定は、確かに動くがあまり推奨ではない %>
     <%= yield %>
   </body>
 </html>
