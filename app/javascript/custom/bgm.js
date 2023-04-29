@@ -1,6 +1,6 @@
 document.addEventListener("turbo:load", function () {
   const bgm = document.getElementById("bgm");
-  console.log(bgm);
+  bgm.volume = 0.1;
 
   function playBGM() {
     console.log("Playing BGM");
