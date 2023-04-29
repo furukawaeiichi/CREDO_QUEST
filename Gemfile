@@ -7,7 +7,7 @@ ruby "3.2.2"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails", "3.4.2"  #バージョン指定のみ追記
+gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -45,7 +45,7 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails",     "2.1.2"  #追加
 
-gem "bootstrap-sass",  "3.4.1"  #追加
+#gem "bootstrap-sass",  "3.4.1"  追加したがcss競合のためコメントアウト
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

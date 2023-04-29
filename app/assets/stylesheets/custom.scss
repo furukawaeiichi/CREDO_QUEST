@@ -1,6 +1,4 @@
 //すべてのページに適用される共通のスタイルをCSSに追加する
-@import "bootstrap-sprockets";
-@import "bootstrap"; //この2行でbootstrapを読み込んでいる
 
 .body-background {
   background-image: url("background.jpg");
@@ -13,4 +11,8 @@
   color: white;
   text-shadow: 1px 1px 2px black, -1px -1px 2px black, -1px 1px 2px black,
     1px -1px 2px black;
+}
+
+.li {
+  list-style-type: none;
 }
