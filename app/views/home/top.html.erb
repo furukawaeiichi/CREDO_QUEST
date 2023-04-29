@@ -1,4 +1,17 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
-<h1 class="display-5 fw-bold white-text">CSS TEST</h1>
-<a href="/home/special_thanks">special_thanksへ移動</a>
+<div class="container px-4 py-5 my-5">
+  <div class="text-center white-text">
+    <h1 class="display-5 fw-bold">CREDO QUESTとは</h1>
+    <p class="lead">WEBエンジニアになるためのマインドが身につけられる</p>
+    <p class="lead">同期・他期の受講生やスタッフに、どんな仲間がいるのかわかる</p>
+    <p class="lead">応援したい仲間にNiceActive!を送れる</p>
+
+    <div class="d-grid d-sm-flex justify-content-sm-center">
+      <%= button_to "ログイン", '#', method: :get, class: "btn btn-primary btn-lg button-spacing" %>
+      <%= button_to "新規登録", '#', method: :get, class: "btn btn-secondary btn-lg button-spacing" %>
+    </div>
+
+    <div class="d-grid d-sm-flex justify-content-sm-center">
+      <%= button_to "ゲストログイン", '#', method: :get, class: "btn btn-light button-spacing" %>
+    </div>
+  </div>
+</div>
