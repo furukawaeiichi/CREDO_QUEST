@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav me-auto">
+        <%# <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= button_to "設定", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
+          </li>
+          <li class="nav-item">
+            <%= button_to "ユーザ一覧", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
+          </li>
+          <li class="nav-item">
+            <%= button_to "ログアウト", '#', method: :delete, class: "nav-link active btn btn-link", aria: { current: "page" } %>
+          </li>
+        <%# <% else %>
+          <li class="nav-item">
+            <%= button_to "ログイン", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
+          </li>
+          <li class="nav-item">
+            <%= button_to "新規登録", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
+          </li>
+          <li class="nav-item">
+            <%= button_to "ゲストログイン", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
+          </li>
+        <%# <% end %>
+      </ul>
+    </div>
+    <div class="d-flex">
+      <%= link_to "https://twitter.com/CREDO_QUEST", class: "nav-link" do %>
+        <i class="bi bi-twitter" style="color: #000; font-size: 1.5rem;"></i>
+      <% end %>
+      <%= link_to "https://github.com/furukawaeiichi/CredoQuest", class: "nav-link" do %>
+        <i class="bi bi-github" style="color: #000; font-size: 1.5rem;"></i>
+      <% end %>
+      <i id="playPauseBtn" class="bi bi-skip-end-btn" style="font-size: 2rem;"></i>
+    </div>
+  </div>
+</nav>
