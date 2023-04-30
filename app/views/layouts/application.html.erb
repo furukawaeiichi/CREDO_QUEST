@@ -11,10 +11,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <meta name="turbo-cache-control" content="no-cache">  <!-- bgm非同期通信のため、キャッシュ無効 -->
   </head>
 
   <body class="body-background">
-    <%= audio_tag "/audios/bgm.mp3", id: "bgm", loop: true, data: { turbo_permanent: true } %>  <%# /から指定は、確かに動くがあまり推奨ではない %>
+    <%= audio_tag "/audios/bgm.mp3", data: { turbo_permanent: true } %>  <!-- AssetNotFoundエラー出るため、推奨でないが/からpath始まる -->
     <%= render 'shared/header' %>
     <%= yield %>
     <%= render 'shared/footer' %>
