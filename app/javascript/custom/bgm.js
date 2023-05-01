@@ -1,5 +1,6 @@
 document.addEventListener("turbo:load", () => {
   const bgm = document.querySelector("#bgm");
+  volume = 0.1;
 
   // 保存されている再生状態を取得
   const wasPlaying = sessionStorage.getItem("wasPlaying") === "true";
