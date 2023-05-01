@@ -15,7 +15,6 @@
   </head>
 
   <body class="body-background">
-    <%= audio_tag "/audios/bgm.mp3", data: { turbo_permanent: true } %>  <!-- AssetNotFoundエラー出るため、推奨でないが/からpath始まる -->
     <%= render 'shared/header' %>
     <%= yield %>
     <%= render 'shared/footer' %>
