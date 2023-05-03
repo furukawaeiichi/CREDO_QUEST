@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, only: [:create]
+
   def create
     # ユーザー認証に失敗したら
     unless request.env['omniauth.auth'][:uid]
