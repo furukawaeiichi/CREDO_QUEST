@@ -42,4 +42,9 @@ class SessionsController < ApplicationController
     flash[:success] = 'ログアウトしました'
     redirect_to root_url
   end
+
+  # private 後にリファクタリングする
+  # def auth_params
+  #   request.env['omniauth.auth']
+  # end
 end
