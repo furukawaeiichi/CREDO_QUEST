@@ -19,7 +19,7 @@
         <% else %>
         <%# ユーザがログアウトしていたら %>
           <li class="nav-item">
-            <%= button_to "ログイン", "/auth/twitter2", method: :post, class: "nav-link active btn btn-link", aria: { current: "page" } %>
+            <%= button_to "ログイン", "/auth/twitter2", method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
           </li>
           <li class="nav-item">
             <%= button_to "ゲストログイン", "#", method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
