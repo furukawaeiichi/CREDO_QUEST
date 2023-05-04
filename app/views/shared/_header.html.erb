@@ -5,7 +5,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav me-auto">
-        <%# <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <%= link_to "Sign out", "/sign_out", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           <li class="nav-item">
             <%= button_to "設定", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
           </li>
@@ -15,7 +16,8 @@
           <li class="nav-item">
             <%= button_to "ログアウト", '#', method: :delete, class: "nav-link active btn btn-link", aria: { current: "page" } %>
           </li>
-        <%# <% else %>
+        <% else %>
+          <%= button_to "Sign in", "/auth/twitter2", method: :post, data: { turbo: false } %>
           <li class="nav-item">
             <%= button_to "ログイン", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
           </li>
@@ -25,7 +27,7 @@
           <li class="nav-item">
             <%= button_to "ゲストログイン", '#', method: :get, class: "nav-link active btn btn-link", aria: { current: "page" } %>
           </li>
-        <%# <% end %>
+        <% end %>
       </ul>
     </div>
     <div class="d-flex">
