@@ -6,11 +6,7 @@
     <p class="lead">応援したい仲間にNiceActive!を送れる</p>
 
     <div class="d-grid d-sm-flex justify-content-sm-center">
-      <%= button_to "ログイン", '#', method: :get, class: "btn btn-primary btn-lg button-spacing" %>
-      <%= button_to "新規登録", '#', method: :get, class: "btn btn-secondary btn-lg button-spacing" %>
-    </div>
-
-    <div class="d-grid d-sm-flex justify-content-sm-center">
+      <%= button_to "Twitterログイン", "/auth/twitter2", method: :post, data: { turbo: false }, class: "btn btn-primary" %>
       <%= button_to "ゲストログイン", '#', method: :get, class: "btn btn-light button-spacing" %>
     </div>
   </div>

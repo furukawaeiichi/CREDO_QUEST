@@ -5,6 +5,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
           callback_path: "/auth/twitter2/callback",
           scope: "tweet.read users.read"
 
+  # 認証失敗したら、/auth/failure にリダイレクト
   OmniAuth.config.on_failure =
     Proc.new { |env| OmniAuth::FailureEndpoint.new(env).redirect_to_failure }
 end
