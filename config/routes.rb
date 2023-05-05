@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/auth/failure", to: "sessions#failure"
   delete "/sign_out", to: "sessions#destroy"
 
-  get "/users", to: "users#show"
+  get "/users/:id", to: "users#show"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
