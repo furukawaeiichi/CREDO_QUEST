@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def create                                                            # サインインしたら
     user = User.find_or_create_from_auth(request.env["omniauth.auth"])  # userを認証情報から探す、なければ作る
     session[:user_id] = user.uid                                        # user_idをセッションに入れる
-    redirect_to request.env["omniauth.origin"] || root_url              # 認証前のページに戻る、なければroot_urlにリダイレクト
+    redirect_to user_path(user.id)                                      # user_pathにリダイレクト
   end
 
   def destroy                                                           # サインアウトしたら
