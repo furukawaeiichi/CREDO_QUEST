@@ -5,3 +5,91 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+lists_data = [                                                  # lists_dataという配列を定義
+  {
+    title: "Be Open",                                           # titleキーに"Be Open"という値を持つハッシュを定義
+    todos: [                                                    # todosキーに配列を持つハッシュを定義
+      "Twitterやtimesで、目標を投稿しよう！",
+      "わからない所を、恥ずかしがらずにtimesに書こう！",
+      "同期限定イベントに参加してみよう！",
+      "全体懇親会に参加してみよう！",
+      "他の受講生と、どんなエンジニアになりたいか喋ってみよう！",
+      "本当に困っていることは、ヘルプを出せるようになろう！",
+      "成功体験や失敗談からの学びをNoteなどに書いてみよう！",
+      "他の受講生と、技術面談の練習をしよう！",
+      "checkbox9",
+      "checkbox10"
+    ]
+  },
+  {
+    title: "Move Fast",
+    todos: [
+      "同期のtimesをチェックしよう！",
+      "すぐ返事しよう！（できない時はスタンプ）",
+      "今日学んだことをtimesに書こう！",
+      "バトランのアーカイブを観よう！",
+      "どんなPFを作ってみたいか、アイデア帳にメモしよう！",
+      "Githubの草を、1週間毎日生やそう！",
+      "checkbox7",
+      "checkbox8",
+      "checkbox9",
+      "checkbox10"
+    ]
+  },
+  {
+    title: "Give First",
+    todos: [
+      "他の受講生のtimesに、コメントorスタンプしよう！",
+      "NiceActive!を送ろう！",
+      "他の受講生がわからない問題を、一緒に考えてみよう！",
+      "Discord「救済部屋」でコメントしよう！",
+      "後輩のわからないところを教えてみよう！",
+      "他の受講生のPFを触って、Twitterで感想をつぶやこう！",
+      "就活のふりかえりをtimesで発信しよう！",
+      "checkbox8",
+      "checkbox9",
+      "checkbox10"
+    ]
+  },
+  {
+    title: "Geek Out",
+    todos: [
+      "フォーマットを埋めて、質問を投稿しよう！",
+      "自分のtimesに学んだ知識を書いてみよう！",
+      "技術ログを書いてみよう！（NotionやQiita等）",
+      "rails newしよう！（カリキュラム外のアプリ制作）",
+      "scaffoldして、3つ簡単な機能を作ろう！",
+      "LT会で学んだことを発表しよう！",
+      "新しい技術の記事や本を読んでみよう！",
+      "PFを技術ブログにまとめよう！",
+      "他の受講生と、お互いのPFコードレビューをしよう！",
+      "checkbox10"
+    ]
+  },
+  {
+    title: "Take Ownership",
+    todos: [
+      "イベントに参加してみよう！",
+      "自分のモチベーションが上がるフックを見つけよう！",
+      "今週の立てた目標を達成しよう！",
+      "もくもく会を開催してみよう！",
+      "LT会に登壇しよう！",
+      "スクール外のエンジニアイベントに参加しよう！",
+      "checkbox7",
+      "checkbox8",
+      "checkbox9",
+      "checkbox10"
+    ]
+  }
+]
+
+User.find_each do |user|                                        # Userテーブルのレコードを1件ずつ取り出し、userという変数に格納
+  lists_data.each do |list_data|                                # lists_data配列の要素を1つずつ取り出し、list_dataという変数に格納
+    list = user.lists.create(title: list_data[:title])          # list変数に代入。userに紐づくlistを作成、titleにlist_dataのtitleを代入
+
+    list_data[:todos].each do |todo_content|                    # list_dataのtodos配列の要素を1つずつ取り出し、todo_contentという変数に格納
+      list.todos.create(content: todo_content, checked: false)  # listに紐づくtodoを作成、contentにtodo_contentを代入、checkedにfalseを代入
+    end
+  end
+end
