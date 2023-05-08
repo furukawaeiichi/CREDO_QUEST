@@ -13,4 +13,7 @@ class User < ApplicationRecord
     end
   end
 
+  has_many :lists
+  has_many :todos, through: :lists
+
 end
