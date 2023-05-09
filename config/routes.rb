@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get "/users/:id", to: "users#show", as: "user"
 
-  get "/boards", to: "users#boards", as: "boards"
+  get "/boards", to: "lists#boards", as: "boards"
 
   resources :lists do # ネスト(入れ子)されたリソースを定義
     resources :todos
