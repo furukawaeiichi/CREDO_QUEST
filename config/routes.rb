@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get "/boards", to: "lists#boards", as: "boards"
 
+  resources :todos
+
   resources :lists do # ネスト(入れ子)されたリソースを定義
     resources :todos
   end

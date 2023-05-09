@@ -13,4 +13,5 @@ class User < ApplicationRecord
     end
   end
 
+  has_many :lists, dependent: :destroy  # Userが削除されたら、関連するListも削除される
 end
