@@ -4,4 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])          # params[:id]でユーザーを探す
   end
+
+  def boards
+    render "boards/index"
+  end
 end
