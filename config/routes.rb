@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :lists do # ネスト(入れ子)されたリソースを定義
     resources :todos
   end
+  resources :tasks
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
