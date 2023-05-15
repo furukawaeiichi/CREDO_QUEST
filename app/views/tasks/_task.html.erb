@@ -1,4 +1,6 @@
-<label class="list-group-item">
-  <input class="form-check-input me-1" type="checkbox" value="" <%= 'checked' if task.checked %> >
-  <%= task.content %>
-</label>
+<div class="input-group mb-3">
+  <div class="input-group-text">
+    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" <%= 'checked' if task.checked %>>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
+</div>
