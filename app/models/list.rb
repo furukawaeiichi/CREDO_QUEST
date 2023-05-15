@@ -1,3 +1,5 @@
 class List < ApplicationRecord
-  has_many :todos
+  belongs_to :user
+  has_many :todos, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 end
