@@ -21,7 +21,8 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
+    @list = current_user.lists.find_or_create_by(title: "マイクエスト")
+    @task = @list.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
