@@ -4,4 +4,9 @@
   </div>
   <input type="text" class="form-control" aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
   <%= link_to "詳細", task, class: "btn btn-secondary" %>
+  <%= link_to "編集", edit_task_path(task), class: "btn btn-secondary" %>
+  <%= link_to "削除", task, class: "btn btn-secondary", data: {
+                                                              turbo_method: :delete,
+                                                              turbo_confirm: '本当に削除しますか？'
+                                                              } %>
 </div>
