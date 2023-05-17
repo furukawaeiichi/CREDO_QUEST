@@ -1,4 +1,7 @@
 <div class="input-group mb-0">
+  <%= link_to user_path(task.list.user) do %>
+    <img src="<%= task.list.user.image %>" width="50" height="50" style="display: block; margin: auto;">
+  <% end %>
   <div class="input-group-text">
     <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" <%= 'checked' if task.checked %>>
   </div>

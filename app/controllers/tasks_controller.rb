@@ -23,6 +23,7 @@ class TasksController < ApplicationController
   def create
     @list = current_user.lists.find_or_create_by(title: "マイクエスト")
     @task = @list.tasks.build(task_params)
+    @task.user = current_user
 
     respond_to do |format|
       if @task.save
