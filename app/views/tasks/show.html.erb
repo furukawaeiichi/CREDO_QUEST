@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<div class="container px-4 py-5 my-5">
+  <div class="text-center">
 
-<%= render @task %>
+    <p style="color: white"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
+    <h1 class="white-text">クエスト詳細</h1>
 
-  <%= button_to "Destroy this task", @task, method: :delete %>
+    <%= render @task %>
+
+    <div>
+      <%= link_to "クエスト編集", edit_task_path(@task) %> |
+      <%= link_to "クエスト一覧", tasks_path %>
+
+      <%= button_to "クエスト削除", @task, method: :delete %>
+    </div>
+
+  </div>
 </div>

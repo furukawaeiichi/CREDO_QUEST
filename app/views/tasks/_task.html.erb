@@ -1,12 +1,12 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Content:</strong>
-    <%= task.content %>
-  </p>
-
-  <p>
-    <strong>Checked:</strong>
-    <%= task.checked %>
-  </p>
-
+<div class="input-group mb-0">
+  <div class="input-group-text">
+    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" <%= 'checked' if task.checked %>>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
+  <%= link_to "詳細", task, class: "btn btn-secondary" %>
+  <%= link_to "編集", edit_task_path(task), class: "btn btn-secondary" %>
+  <%= link_to "削除", task, class: "btn btn-secondary", data: {
+                                                              turbo_method: :delete,
+                                                              turbo_confirm: '本当に削除しますか？'
+                                                              } %>
 </div>
