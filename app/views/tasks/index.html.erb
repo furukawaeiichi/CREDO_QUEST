@@ -5,12 +5,11 @@
 
     <h1 class=" white-text">みんなのクエスト</h1>
 
-    <%= link_to "マイクエスト作成", new_task_path, class: "btn btn-primary" %>
+    <%= link_to "マイクエスト作成", new_task_path, class: "btn btn-primary", data: { turbo_frame: dom_id(Task.new) } %>
+    <%= turbo_frame_tag Task.new %>
 
     <div id="tasks">
-      <% @tasks.each do |task| %>
-        <%= render 'task', task: task %>
-      <% end %>
+      <%= render @tasks %>
     </div>
 
   </div>
