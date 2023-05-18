@@ -1,25 +1,25 @@
-<%= form_with(model: @task) do |form| %>
-  <% if task.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<%= turbo_frame_tag task do %>
+  <%= form_with(model: @task) do |form| %>
+    <% if task.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-        <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% task.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-group mb-3">
+      <div class="input-group-text">
+        <%= form.check_box :checked, class: "form-check-input mt-0", aria_label: "Checkbox for following text input" %>
+      </div>
+      <%= form.text_field :content, class: "form-control", aria_label: "Text input with checkbox" %>
+      <button type="submit" class="btn btn-primary">送信</button>
+      <button type="submit" class="btn btn-secondary" aria-label="Close">戻る</button>
     </div>
+
   <% end %>
-
-  <div class="input-group mb-3">
-    <div class="input-group-text">
-      <%= form.check_box :checked, class: "form-check-input mt-0", aria_label: "Checkbox for following text input" %>
-    </div>
-    <%= form.text_field :content, class: "form-control", aria_label: "Text input with checkbox" %>
-  </div>
-
-  <div>
-    <button type="submit" class="btn btn-primary">送信</button>
-    <button type="submit" class="btn btn-secondary" aria-label="Close">戻る</button>
-  </div>
 <% end %>

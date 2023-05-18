@@ -1,17 +1,20 @@
-<div class="input-group mb-0">
-  <%= link_to user_path(task.list.user) do %>
-    <img src="<%= task.list.user.image %>" width="50" height="50" style="display: block; margin: auto;">
-  <% end %>
-  <div class="input-group-text">
-    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" <%= 'checked' if task.checked %>>
+<%= turbo_frame_tag task do %>
+  <div class="input-group mb-0">
+    <%= link_to user_path(task.list.user) do %>
+      <img src="<%= task.list.user.image %>" width="50" height="50" style="display: block; margin: auto;">
+    <% end %>
+
+    <div class="input-group-text">
+      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" <%= 'checked' if task.checked %>>
+    </div>
+    <input type="text" class="form-control" aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
+    <%= link_to "詳細", task, class: "btn btn-secondary" %>
+    <% if current_user == task.user %>
+      <%= link_to "編集", edit_task_path(task), class: "btn btn-secondary" %>
+      <%= link_to "削除", task, class: "btn btn-secondary", data: {
+                                                                  turbo_method: :delete,
+                                                                  turbo_confirm: '本当に削除しますか？'
+                                                                  } %>
+    <% end %>
   </div>
-  <input type="text" class="form-control" aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
-  <%= link_to "詳細", task, class: "btn btn-secondary" %>
-  <% if current_user == task.user %>
-    <%= link_to "編集", edit_task_path(task), class: "btn btn-secondary" %>
-    <%= link_to "削除", task, class: "btn btn-secondary", data: {
-                                                                turbo_method: :delete,
-                                                                turbo_confirm: '本当に削除しますか？'
-                                                                } %>
-  <% end %>
-</div>
+<% end %>
