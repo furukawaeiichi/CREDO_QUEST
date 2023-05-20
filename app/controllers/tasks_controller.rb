@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.order(id: :desc).all
+    @task = Task.new
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -13,7 +14,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
   end
 
   # GET /tasks/1/edit
