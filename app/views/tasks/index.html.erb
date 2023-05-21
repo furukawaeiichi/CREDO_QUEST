@@ -7,13 +7,13 @@
 
     <%= turbo_frame_tag @task do %>
 
-    <%= render "form", task: @task %>
+      <%= render "form", task: @task %>
 
-      <div id="tasks">
-        <% @tasks.each do |task| %>
-          <%= render partial: task %>
-        <% end %>
-      </div>
+        <div id="tasks">
+          <% @tasks.each do |task| %>
+            <%= render partial: task %>
+          <% end %>
+        </div>
 
     <% end %>
 
