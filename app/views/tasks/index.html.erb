@@ -9,11 +9,9 @@
 
       <%= render "form", task: @task %>
 
-        <div id="tasks">
-          <% @tasks.each do |task| %>
-            <%= render partial: task %>
-          <% end %>
-        </div>
+      <% @tasks.each do |task| %>
+        <%= render partial: task %>
+      <% end %>
 
     <% end %>
 
