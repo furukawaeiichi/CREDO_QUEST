@@ -55,7 +55,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "クエストが削除されました！" }
+      format.html { redirect_to tasks_url, notice: "クエストが削除されました！", status: :see_other }
       format.json { head :no_content }
     end
   end
