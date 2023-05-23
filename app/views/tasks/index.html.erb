@@ -3,15 +3,17 @@
 
     <p style="color: white"><%= notice %></p>
 
-    <h1 class=" white-text">みんなのクエスト</h1>
+    <h1 class="white-text">みんなのクエスト</h1>
 
-    <%= link_to "マイクエスト作成", new_task_path, class: "btn btn-primary" %>
+    <%= turbo_frame_tag @task do %>
 
-    <div id="tasks">
+      <%= render "form", task: @task %>
+
       <% @tasks.each do |task| %>
-        <%= render 'task', task: task %>
+        <%= render partial: task %>
       <% end %>
-    </div>
+
+    <% end %>
 
   </div>
 </div>

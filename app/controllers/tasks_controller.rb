@@ -4,7 +4,8 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.order(id: :desc).all
+    @task = Task.new
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -13,7 +14,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
   end
 
   # GET /tasks/1/edit
@@ -55,7 +55,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "クエストが削除されました！" }
+      format.html { redirect_to tasks_url, notice: "クエストが削除されました！", status: :see_other }
       format.json { head :no_content }
     end
   end
