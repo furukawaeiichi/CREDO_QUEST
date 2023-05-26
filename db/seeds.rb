@@ -6,10 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-list_data = [                                                  # list_dataという配列を定義
+user = User.create!(provider: "provider_name", uid: "uid", nickname: "nickname", name: "name", image: "image_url")
+
+my_quest = List.create!(title: "マイクエスト", user_id: user.id)
+
+list_data = [
   {
-    title: "Be Open",                                           # titleキーに"Be Open"という値を持つハッシュを定義
-    todos: [                                                    # todosキーに配列を持つハッシュを定義
+    title: "Be Open",
+    todos: [
       "Twitterやtimesで、目標を投稿しよう！",
       "わからない所を、恥ずかしがらずにtimesに書こう！",
       "同期限定イベントに参加してみよう！",
@@ -29,8 +33,8 @@ list_data = [                                                  # list_dataとい
       "すぐ返事しよう！（できない時はスタンプ）",
       "今日学んだことをtimesに書こう！",
       "紙やtimesに分からないことを書き出して、問題を分解しよう！",
-      "バトランのアーカイブを観よう！",
-      "どんなPFを作ってみたいか、アイデア帳にメモしよう！",
+      "バトランのアーカイブを観て、自分なりの目標を決めよう！",
+      "どんなWebアプリを作ってみたいか、アイデア帳にメモしよう！",
       "Githubの草を、1週間毎日生やそう！",
       "checkbox8",
       "checkbox9",
@@ -45,8 +49,8 @@ list_data = [                                                  # list_dataとい
       "他の受講生がわからない問題を、一緒に考えてみよう！",
       "Discord「救済部屋」のメッセージ欄から協力しよう！",
       "自分が後輩のわからないところを教えてみよう！",
-      "他の受講生のPFを触って、Twitterで感想をつぶやこう！",
-      "就活のふりかえりをtimesで発信しよう！",
+      "他の受講生のWebアプリを触って、Twitterで感想をつぶやこう！",
+      "就活・面談のふりかえりをtimesで発信しよう！",
       "checkbox8",
       "checkbox9",
       "checkbox10"
@@ -55,14 +59,14 @@ list_data = [                                                  # list_dataとい
   {
     title: "Geek Out",
     todos: [
-      "フォーマットを埋めて、質問を投稿しよう！",
+      "フォーマットを埋めて、質問の初投稿しよう！",
       "自分のtimesに学んだ知識を書いてみよう！",
       "技術ログを書いてみよう！（NotionやQiita等）",
-      "rails newして、簡単な機能3つを作ろう！（カリキュラム外）",
+      "rails newして、簡単な機能を3つ作ろう！（カリキュラム外）",
       "LT会で学んだことを発表しよう！",
       "新しい技術の記事や本を読んでみよう！",
-      "PFを技術ブログにまとめよう！",
-      "他の受講生と、お互いのPFコードレビューをしよう！",
+      "Webアプリを技術ブログにまとめよう！",
+      "他の受講生と、お互いのWebアプリコードレビューをしよう！",
       "checkbox9",
       "checkbox10"
     ]
@@ -83,3 +87,11 @@ list_data = [                                                  # list_dataとい
     ]
   }
 ]
+
+list_data.each do |list|
+  created_list = List.create!(title: list[:title], user_id: user.id)
+
+  list[:todos].each do |todo|
+    Todo.create!(content: todo, list_id: created_list.id, user_id: user.id)
+  end
+end
