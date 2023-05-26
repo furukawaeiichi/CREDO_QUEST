@@ -3,5 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])          # params[:id]でユーザーを探す
+    @tasks = @user.tasks.order(id: :desc)   # ユーザーのタスクを新しい順に並べる
   end
 end
