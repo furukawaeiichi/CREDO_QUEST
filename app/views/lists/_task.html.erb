@@ -1,6 +1,4 @@
-<div class="d-grid gap-2">
-  <%= link_to "クエスト作成へ", tasks_path, method: :get, class: "btn btn-primary" %>
-</div>
+<%= render "tasks/form", task: @task %>
 
 <% @user_tasks.each do |task| %>
   <%= render partial: task %>
