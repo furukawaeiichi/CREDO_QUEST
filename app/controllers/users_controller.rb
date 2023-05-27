@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!         # サインインしていなければ、root_pathにリダイレクト
+  before_action :authenticate_user!               # サインインしていなければ、root_pathにリダイレクト
 
   def show
-    @user = User.find(params[:id])          # params[:id]でユーザーを探す
-    @tasks = @user.tasks.order(id: :desc)   # ユーザーのタスクを新しい順に並べる
+    @user = User.find(params[:id])                # params[:id]でユーザーを探す
+    @user_tasks = @user.tasks.order(id: :desc)    # ユーザーのタスクを新しい順に並べる
   end
 end
