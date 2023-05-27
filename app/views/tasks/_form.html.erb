@@ -1,22 +1,16 @@
 <%= form_with(model: @task) do |form| %>
 
-<%
-=begin
-%>
-    <% if @task.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(@task.errors.count, "error") %> 以下のエラーにより保存できませんでした。</h2>
+  <% if @task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@task.errors.count, "error") %> 以下のエラーにより保存できませんでした。</h2>
 
-        <ul>
-          <% @task.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-<%
-=end
-%>
+      <ul>
+        <% @task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="input-group mb-3">
     <div class="input-group-text">
