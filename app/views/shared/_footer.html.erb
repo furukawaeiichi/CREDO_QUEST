@@ -1,4 +1,4 @@
-<div class="container white-text">
+<div class="container">
   <footer class="border-bottom thick-border">
     <ul class="nav justify-content-center">
       <li class="nav-item"><a href="/home/top" class="nav-link white-text">TOP</a></li>
@@ -7,14 +7,14 @@
 
       <li class="nav-item dropup">
         <a class="nav-link white-text dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">規約・問い合わせ</a>
-        <ul class="dropdown-menu">
-          <li class="nav-item"><%= link_to "利用規約", "#", class: "nav-link white-text" %></li>
-          <li class="nav-item"><%= link_to "プライバシポリシ", "#", class: "nav-link white-text" %></li>
-          <li class="nav-item"><%= link_to "お問い合わせ", "https://docs.google.com/forms/d/e/1FAIpQLSem-rlvwDvTYiSJXXkoF9SltbqDEdEjaoFLUpd4Ci1vOEN5vA/viewform", class: "nav-link white-text" %></li>
+        <ul class="dropdown-menu black-text">
+          <li class="nav-item"><%= link_to "利用規約", "#", class: "dropdown-item" %></li>
+          <li class="nav-item"><%= link_to "プライバシポリシ", "#", class: "dropdown-item" %></li>
+          <li class="nav-item"><%= link_to "お問い合わせ", "https://docs.google.com/forms/d/e/1FAIpQLSem-rlvwDvTYiSJXXkoF9SltbqDEdEjaoFLUpd4Ci1vOEN5vA/viewform", class: "dropdown-item" %></li>
         </ul>
       </li>
 
     </ul>
-    <p class="text-center">&copy; <%= Time.now.year %> CREDO QUEST</p>
+    <p class="text-center white-text">&copy; <%= Time.now.year %> CREDO QUEST</p>
   </footer>
 </div>
