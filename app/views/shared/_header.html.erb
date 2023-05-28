@@ -3,7 +3,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="collapse navbar-collapse show" id="navbarTogglerDemo01">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
@@ -27,6 +27,16 @@
           </li>
           <li class="nav-item">
             <%= button_to "ゲストログイン", "#", method: :get, class: "nav-link active btn btn-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              規約・問い合わせ
+            </a>
+            <ul class="dropdown-menu dropdown-menu-" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">利用規約</a></li>
+              <li><a class="dropdown-item" href="#">プライバシポリシ</a></li>
+              <li><a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSem-rlvwDvTYiSJXXkoF9SltbqDEdEjaoFLUpd4Ci1vOEN5vA/viewform">お問い合わせ</a></li>
+            </ul>
           </li>
         <% end %>
       </ul>
