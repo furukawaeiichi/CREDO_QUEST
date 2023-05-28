@@ -1,19 +1,21 @@
-<div class="container px-4 py-5 my-5">
-  <div class="text-center">
+<div class="container-fluid px-0 py-5 my-5">
+  <div class="row mx-0">
+    <div class="col px-4 text-center">
 
-    <p style="color: white"><%= notice %></p>
+      <p style="color: white"><%= notice %></p>
 
-    <h1 class="white-text">みんなのクエスト</h1>
+      <h1 class="white-text">みんなのクエスト</h1>
 
-    <%= turbo_frame_tag @task do %>
+      <%= turbo_frame_tag @task do %>
 
-      <%= render "form", task: @task %>
+        <%= render "form", task: @task %>
 
-      <% @tasks.each do |task| %>
-        <%= render partial: task %>
+        <% @tasks.each do |task| %>
+          <%= render partial: task %>
+        <% end %>
+
       <% end %>
 
-    <% end %>
-
+    </div>
   </div>
 </div>

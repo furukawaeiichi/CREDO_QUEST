@@ -1,8 +1,35 @@
-<nav class="nav nav-pills flex-column flex-sm-row">
-  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">マイクエスト</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Be Open</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Move Fast</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Give First</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Geek Out</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Take Ownership</a>
-</nav>
+<ul class="nav nav-pills nav-fill bg-light mb-3" id="pills-tab" role="tablist">
+  <% lists.each_with_index do |list, index| %>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link <%= 'active' if index.zero? %>"
+        id="pills-<%= list.title.parameterize %>-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-<%= list.title.parameterize %>"
+        type="button"
+        role="tab"
+        aria-controls="pills-<%= list.title.parameterize %>"
+        aria-selected="<%= index.zero? %>"
+      >
+        <%= list.title %>
+      </button>
+    </li>
+  <% end %>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <% lists.each_with_index do |list, index| %>
+    <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="pills-<%= list.title.parameterize %>" role="tabpanel" aria-labelledby="pills-<%= list.title.parameterize %>-tab">
+      <% if list.title == "マイクエスト" %>
+        <%= render 'lists/task', user_tasks: @user_tasks %>
+      <% else %>
+        <% list.todos.each_with_index do |todo, index| %>
+          <label class="list-group-item">
+            <%= index + 1 %>. <input class="form-check-input me-1" type="checkbox" value="">
+            <%= todo.content %>
+          </label>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

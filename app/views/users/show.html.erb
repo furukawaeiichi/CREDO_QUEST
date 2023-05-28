@@ -4,12 +4,13 @@
     <div class="card-body">
       <h5 class="card-title"><%= @user.name %></h5>
       <p class="card-text">勇者/魔法使い/僧侶/弓使い  Level:???  称号:???</p>
-      <a href="https://twitter.com/<%= @user.nickname %>"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
-      <a href="#"><i class="bi bi-github" style="color: #000; font-size: 1.5rem;"></i></a>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="https://twitter.com/<%= @user.nickname %>"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
+        <a href="#"><i class="bi bi-globe2" style="color: #000; font-size: 1.5rem;"></i></a>
+        <a href="#"><i class="bi bi-github" style="color: #000; font-size: 1.5rem;"></i></a>
+      </div>
     </div>
   </div>
 </div>
 
-<%= render 'lists/index' %>
-
-<%= render 'todos/index' %>
+<%= render partial: 'lists/index', locals: { lists: @lists } %>

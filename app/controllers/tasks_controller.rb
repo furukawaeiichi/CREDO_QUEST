@@ -28,7 +28,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to tasks_url, notice: "クエストが作成されました！一緒にがんばるぞ！" }
+        format.html { redirect_to request.referrer, notice: "クエストが作成されました！一緒にがんばるぞ！" }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to tasks_url, notice: "クエストが更新されました！" }
+        format.html { redirect_to request.referrer, notice: "クエストが更新されました！" }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "クエストが削除されました！", status: :see_other }
+      format.html { redirect_to request.referrer, notice: "クエストが削除されました！", status: :see_other }
       format.json { head :no_content }
     end
   end
