@@ -20,11 +20,15 @@
 <div class="tab-content" id="pills-tabContent">
   <% lists.each_with_index do |list, index| %>
     <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="pills-<%= list.title.parameterize %>" role="tabpanel" aria-labelledby="pills-<%= list.title.parameterize %>-tab">
-      <% list.todos.each_with_index do |todo, index| %>
-        <label class="list-group-item">
-          <%= index + 1 %>. <input class="form-check-input me-1" type="checkbox" value="">
-          <%= todo.content %>
-        </label>
+      <% if list.title == "マイクエスト" %>
+        <%= render 'lists/task', user_tasks: @user_tasks %>
+      <% else %>
+        <% list.todos.each_with_index do |todo, index| %>
+          <label class="list-group-item">
+            <%= index + 1 %>. <input class="form-check-input me-1" type="checkbox" value="">
+            <%= todo.content %>
+          </label>
+        <% end %>
       <% end %>
     </div>
   <% end %>
