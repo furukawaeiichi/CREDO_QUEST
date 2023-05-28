@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])                # params[:id]でユーザーを探す
+    @lists = current_user.lists
     @task = Task.new                              # 新しいタスクを作成
     @user_tasks = @user.tasks.order(id: :desc)    # ユーザーのタスクを新しい順に並べる
   end
