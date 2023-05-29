@@ -39,6 +39,8 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
+    @task = Task.find(params[:id])
+
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to request.referrer, notice: "クエストが更新されました！" }
