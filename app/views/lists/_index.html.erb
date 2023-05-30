@@ -23,7 +23,7 @@
       <% if list.title == "マイクエスト" %>
         <%= render 'lists/task', user_tasks: @user_tasks %>
       <% else %>
-        <% list.todos.each_with_index do |todo, index| %>
+        <% list.todos.order(:created_at).each_with_index do |todo, index| %>
           <%= form_with model: [list, todo], data: { turbo_frame: "todo_#{todo.id}" } do |f| %>
             <div class="list-group-item">
               <%= "#{index + 1}." %>
