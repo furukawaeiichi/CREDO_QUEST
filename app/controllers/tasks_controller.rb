@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
-  before_action :current_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   # GET /tasks or /tasks.json
   def index
@@ -69,5 +69,12 @@ class TasksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def task_params
       params.require(:task).permit(:content, :checked)
+    end
+
+    # Verify that the current user is the owner of the task
+    def authenticate_user
+      unless current_user == @task.user
+        redirect_to request.referrer, alert: "権限がありません"
+      end
     end
 end

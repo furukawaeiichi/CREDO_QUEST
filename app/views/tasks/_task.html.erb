@@ -4,9 +4,10 @@
       <img src="<%= task.list.user.image %>" width="50" height="50" style="display: block; margin: auto;">
     <% end %>
 
-    <div class="input-group-text">
-      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" <%= 'checked' if task.checked %>>
-    </div>
+    <%= form_with model: task, html: { data: { turbo_frame: task.id } }, class: "input-group-text" do |form| %>
+      <%= form.check_box :checked, class: "form-check-input mt-0", onchange: 'this.form.requestSubmit()', aria_label: "Checkbox for following text input", checked: task.checked %>
+    <% end %>
+
     <input type="text" class="form-control" style="overflow: auto; aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
     <%# link_to "詳細", task, class: "btn btn-secondary" %>
     <% if current_user == task.user %>
