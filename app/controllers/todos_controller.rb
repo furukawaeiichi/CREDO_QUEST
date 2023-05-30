@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: %i[update]
+  before_action :authorize_user, only: [:update]
 
   def update
     respond_to do |format|
@@ -21,5 +22,11 @@ class TodosController < ApplicationController
 
   def todo_params
     params.require(:todo).permit(:checked)
+  end
+
+  def authorize_user
+    unless current_user == @todo.user
+      redirect_to @todo.list, alert: "権限がありません"
+    end
   end
 end
