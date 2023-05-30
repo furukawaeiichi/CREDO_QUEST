@@ -24,10 +24,13 @@
         <%= render 'lists/task', user_tasks: @user_tasks %>
       <% else %>
         <% list.todos.each_with_index do |todo, index| %>
-          <label class="list-group-item">
-            <%= index + 1 %>. <input class="form-check-input me-1" type="checkbox" value="">
-            <%= todo.content %>
-          </label>
+          <%= form_with model: [list, todo], data: { turbo_frame: "todo_#{todo.id}" } do |f| %>
+            <div class="list-group-item">
+              <%= "#{index + 1}." %>
+              <%= f.check_box :checked, id: "todo_#{todo.id}", class: "form-check-input me-1", onchange: 'this.form.requestSubmit()' %>
+              <%= f.label :checked, todo.content, for: "todo_#{todo.id}" %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
