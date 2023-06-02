@@ -56,7 +56,7 @@ class SessionsController < ApplicationController
         title: "Give First",
         todos: [
           "他の受講生のtimesに、コメントorスタンプしよう！",
-          "頑張っている人を、Mattermost「Nice Active !」投票しよう！",
+          "頑張っている人を、Mattermost「Nice Active !」で投票しよう！",
           "他の受講生がわからない問題を、一緒に考えてみよう！",
           "Discord「救済部屋」のメッセージ欄から協力しよう！",
           "自分が後輩のわからないところを教えてみよう！",
