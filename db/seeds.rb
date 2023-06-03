@@ -5,9 +5,3 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-user = User.find_or_create_by!(provider: "provider_name", uid: "uid") do |user|
-  user.nickname = "nickname"
-  user.name = "name"
-  user.image = "image_url"
-end
