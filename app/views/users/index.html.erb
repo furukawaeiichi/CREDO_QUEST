@@ -1,0 +1,20 @@
+<div class="container-fluid px-0 py-5 my-5">
+  <div class="row mx-0">
+    <div class="col px-4 text-center">
+
+      <h1 class="white-text">仲間を探す</h1>
+
+      <ul class="list-group">
+        <% @users.each do |user| %>
+          <li class="list-group-item">
+            <%= link_to user do %>
+              <%= user.name %>
+              <img src="<%= user.image %>" width="50" height="50" style="display: block; margin: auto;">
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>
