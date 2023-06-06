@@ -1,0 +1,11 @@
+<div class="container-fluid px-0 py-5 my-5">
+  <div class="row mx-0">
+    <div class="col px-4 text-center">
+
+      <h1 class="white-text">設定</h1>
+
+      <%= button_to "アカウント削除", @user, method: :delete, data: { turbo_confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-danger" %>
+
+    </div>
+  </div>
+</div>
