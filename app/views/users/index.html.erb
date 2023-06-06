@@ -8,8 +8,8 @@
         <% @users.each do |user| %>
           <li class="list-group-item">
             <%= link_to user do %>
-              <%= user.name %>
               <img src="<%= user.image %>" width="50" height="50" style="display: block; margin: auto;">
+              <%= user.name %>
             <% end %>
           </li>
         <% end %>
