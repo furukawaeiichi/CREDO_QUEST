@@ -15,4 +15,10 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "アカウントを削除しました"
+    redirect_to root_path, status: :see_other
+  end
 end
