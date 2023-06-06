@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/auth/failure", to: "sessions#failure"
   delete "/sign_out", to: "sessions#destroy"
 
-  get "/users/:id", to: "users#show", as: "user"
+  resources :users
 
   resources :lists do # ネスト(入れ子)されたリソースを定義
     resources :todos, only: [:update]
