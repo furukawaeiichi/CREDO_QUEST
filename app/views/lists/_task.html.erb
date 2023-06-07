@@ -1,4 +1,6 @@
-<%= render "tasks/form", task: @task %>
+<% if @task %>
+  <%= render "tasks/form", task: @task %>
+<% end %>
 
 <% @user_tasks.each do |task| %>
   <%= render partial: task %>
