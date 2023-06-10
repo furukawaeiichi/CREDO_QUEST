@@ -3,3 +3,7 @@ import "@hotwired/turbo-rails";
 import "controllers";
 
 import "./custom/bgm";
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
