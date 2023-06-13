@@ -78,7 +78,7 @@ class SessionsController < ApplicationController
           "LT会で学んだことを発表しよう！",
           "新しい技術の記事や本を読んでみよう！",
           "積読した本の輪読会を開催or参加しよう！",
-          "Webアプリを技術ブログにまとめよう！",
+          "Webアプリを技術ブログにまとめよう！（Qiita, Zennなど）",
           "他の受講生と、お互いのWebアプリをコードレビューをしよう！"
         ]
       },
