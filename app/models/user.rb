@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_many :likes
   has_many :liked_tasks, through: :likes, source: :task
 
+  def already_liked?(task)
+    self.likes.exists?(task_id: task.id)
+  end
+
   def self.find_or_create_from_auth(auth)                             # 引数として認証情報(auth)を受け取り、
     provider = auth[:provider]
     uid = auth[:uid]
