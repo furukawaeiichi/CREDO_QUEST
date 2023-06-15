@@ -49,7 +49,8 @@
       <%= link_to "https://github.com/furukawaeiichi/CREDO_QUEST", class: "nav-link" do %>
         <i class="bi bi-github" style="color: #000; font-size: 1.5rem;"></i>
       <% end %>
-      <%= audio_tag "/audios/bgm.mp3", controls: true, loop: true, data: { turbo_permanent: true }, id: "bgm" %>  <!-- AssetNotFoundエラー出るため、推奨でないが/からpath始まる -->
+      <br>
+      <%= audio_tag "/audios/bgm.mp3", controls: true, loop: true, data: { turbo_permanent: true }, id: "bgm", style: "width: 250px;" %>  <!-- AssetNotFoundエラー出るため、推奨でないが/からpath始まる -->
     </div>
   </div>
 </nav>
