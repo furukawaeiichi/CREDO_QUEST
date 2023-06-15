@@ -10,18 +10,6 @@
 
     <input type="text" class="form-control" style="overflow: auto; aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
 
-    <% if current_user.already_liked?(task) %>
-      <% like = current_user.likes.find_by(task_id: task.id) %>
-      <%= button_to task_like_path(task, like), method: :delete, class: "btn btn-primary", style: "height: 50px;" do %>
-        <i class="bi bi-hand-thumbs-up-fill"></i>
-      <% end %>
-    <% else %>
-      <%= button_to task_likes_path(task), method: :post, class: "btn btn-primary", style: "height: 50px;" do %>
-        <i class="bi bi-hand-thumbs-up"></i>
-      <% end %>
-    <% end %>
-    <%= task.likes.count %>
-
     <%# link_to "詳細", task, class: "btn btn-secondary" %>
     <% if current_user == task.user %>
       <%= link_to "編集", edit_task_path(task), class: "btn btn-secondary" %>
@@ -32,5 +20,19 @@
                                                                     }, style: "height: 50px;" %>
       </turbo-frame>
     <% end %>
+
+    <% if current_user.already_liked?(task) %>
+      <% like = current_user.likes.find_by(task_id: task.id) %>
+      <%= button_to task_like_path(task, like), method: :delete, class: "btn btn-primary", style: "height: 50px;" do %>
+        <i class="bi bi-star-fill"></i>
+        <%= task.likes.count %>
+      <% end %>
+    <% else %>
+      <%= button_to task_likes_path(task), method: :post, class: "btn btn-primary", style: "height: 50px;" do %>
+        <i class="bi bi-star"></i>
+        <%= task.likes.count %>
+      <% end %>
+    <% end %>
+
   </div>
 <% end %>
