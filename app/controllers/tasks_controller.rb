@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.order(id: :desc).all
     @task = Task.new
+    @like = Like.new
   end
 
   # GET /tasks/1 or /tasks/1.json
