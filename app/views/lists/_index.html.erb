@@ -1,38 +1,40 @@
-<ul class="nav nav-pills nav-fill bg-light mb-3" id="pills-tab" role="tablist">
-  <% lists.each_with_index do |list, index| %>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link <%= 'active' if index.zero? %>"
-        id="pills-<%= list.title.parameterize %>-tab"
-        data-bs-toggle="pill"
-        data-bs-target="#pills-<%= list.title.parameterize %>"
-        type="button"
-        role="tab"
-        aria-controls="pills-<%= list.title.parameterize %>"
-        aria-selected="<%= index.zero? %>"
-      >
-        <%= list.title %>
-      </button>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <ul class="nav nav-pills nav-fill bg-light mb-3" id="pills-tab" role="tablist">
+    <% lists.each_with_index do |list, index| %>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link <%= 'active' if index.zero? %>"
+          id="pills-<%= list.title.parameterize %>-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-<%= list.title.parameterize %>"
+          type="button"
+          role="tab"
+          aria-controls="pills-<%= list.title.parameterize %>"
+          aria-selected="<%= index.zero? %>"
+        >
+          <%= list.title %>
+        </button>
+      </li>
+    <% end %>
+  </ul>
 
-<div class="tab-content" id="pills-tabContent">
-  <% lists.each_with_index do |list, index| %>
-    <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="pills-<%= list.title.parameterize %>" role="tabpanel" aria-labelledby="pills-<%= list.title.parameterize %>-tab">
-      <% if list.title == "マイクエスト" %>
-        <%= render 'lists/task', user_tasks: @user_tasks %>
-      <% else %>
-        <% list.todos.order(:created_at).each_with_index do |todo, index| %>
-          <%= form_with model: [list, todo], data: { turbo_frame: "todo_#{todo.id}" } do |f| %>
-            <div class="list-group-item">
-              Level: <%= "#{index + 1}" %>
-              <%= f.check_box :checked, id: "todo_#{todo.id}", class: "form-check-input me-1", onchange: 'this.form.requestSubmit()' %>
-              <%= f.label :checked, todo.content, for: "todo_#{todo.id}" %>
-            </div>
+  <div class="tab-content" id="pills-tabContent">
+    <% lists.each_with_index do |list, index| %>
+      <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="pills-<%= list.title.parameterize %>" role="tabpanel" aria-labelledby="pills-<%= list.title.parameterize %>-tab">
+        <% if list.title == "マイクエスト" %>
+          <%= render 'lists/task', user_tasks: @user_tasks %>
+        <% else %>
+          <% list.todos.order(:created_at).each_with_index do |todo, index| %>
+            <%= form_with model: [list, todo], data: { turbo_frame: "todo_#{todo.id}" } do |f| %>
+              <div class="list-group-item">
+                Level: <%= "#{index + 1}" %>
+                <%= f.check_box :checked, id: "todo_#{todo.id}", class: "form-check-input me-1", onchange: 'this.form.requestSubmit()' %>
+                <%= f.label :checked, todo.content, for: "todo_#{todo.id}" %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
