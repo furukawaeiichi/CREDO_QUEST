@@ -16,10 +16,12 @@
         <i class="bi bi-pencil-square"></i>
       <% end %>
       <turbo-frame id="${this.element.id}">
-        <%= link_to "削除", task, class: "btn btn-secondary", data: {
-                                                                    turbo_method: :delete,
-                                                                    turbo_confirm: '本当に削除しますか？'
-                                                                    }, style: "height: 50px;" %>
+        <%= link_to task, class: "btn btn-secondary", data: {
+                                                              turbo_method: :delete,
+                                                              turbo_confirm: '本当に削除しますか？'
+                                                              }, style: "height: 50px;" do %>
+          <i class="bi bi-trash"></i>
+        <% end %>
       </turbo-frame>
     <% end %>
 
