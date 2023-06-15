@@ -17,8 +17,12 @@
         <%= form.check_box :checked, class: "form-check-input mt-0", aria_label: "Checkbox for following text input" %>
       </div>
       <%= form.text_field :content, class: "form-control", aria_label: "Text input with checkbox" %>
-      <button type="submit" class="btn btn-primary">送信</button>
-      <%= link_to "戻る", @task, class: "btn btn-secondary" %>
+      <button type="submit" class="btn btn-primary">
+        <i class="bi bi-pencil-square"></i>
+      </button>
+      <%= link_to @task, class: "btn btn-secondary" do %>
+        <i class="bi bi-backspace"></i>
+      <% end %>
     </div>
 
   <% end %>
