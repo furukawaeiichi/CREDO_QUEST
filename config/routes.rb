@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :lists do # ネスト(入れ子)されたリソースを定義
     resources :todos, only: [:update]
   end
-  resources :tasks
+
+  resources :tasks do
+    resources :likes, only: [:create, :destroy]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
