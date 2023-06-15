@@ -12,7 +12,9 @@
 
     <%# link_to "詳細", task, class: "btn btn-secondary" %>
     <% if current_user == task.user %>
-      <%= link_to "編集", edit_task_path(task), class: "btn btn-secondary" %>
+      <%= link_to edit_task_path(task), class: "btn btn-secondary" do %>
+        <i class="bi bi-pencil-square"></i>
+      <% end %>
       <turbo-frame id="${this.element.id}">
         <%= link_to "削除", task, class: "btn btn-secondary", data: {
                                                                     turbo_method: :delete,
