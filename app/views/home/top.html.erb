@@ -2,7 +2,6 @@
   <div class="text-center white-text">
     <h1 class="display-5 fw-bold">CREDO QUEST</h1>
     <h1 class="display-5 fw-bold">〜エンジニアになるための旅〜</h1>
-    <p class="lead"></p>
     <br>
     <p class="lead">仲間とクエストをクリアして</p>
     <p class="lead">WEB業界のカルチャーを身につけよう！</p>
@@ -10,6 +9,13 @@
     <div class="d-grid d-sm-flex justify-content-sm-center">
       <%= button_to "Twitterログイン", "/auth/twitter2", method: :post, data: { turbo: false }, class: "btn btn-primary" %>
       <%# <%= button_to "ゲストログイン", '#', method: :get, class: "btn btn-light" %>
+    </div>
+
+    <div class="my-5">
+      <p class="lead">CREDOとは？解説動画</p>
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/wdLRuRU8H9Q" title="YouTube video" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </div>
