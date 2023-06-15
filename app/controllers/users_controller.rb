@@ -19,7 +19,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    @user = User.find(params[:id])
+    @user.likes.destroy_all
+    @user.destroy
+    reset_session
     flash[:success] = "アカウントを削除しました"
     redirect_to root_path, status: :see_other
   end
