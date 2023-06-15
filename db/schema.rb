@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_080849) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_115341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_likes_on_task_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
@@ -55,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_080849) do
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
+  add_foreign_key "likes", "tasks"
+  add_foreign_key "likes", "users"
   add_foreign_key "lists", "users"
   add_foreign_key "tasks", "lists"
   add_foreign_key "tasks", "users"
