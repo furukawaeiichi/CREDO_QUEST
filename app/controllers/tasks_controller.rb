@@ -66,7 +66,7 @@ class TasksController < ApplicationController
     @tasks = Task.left_joins(:likes)
                   .where('tasks.created_at > ?', three_months_ago)
                   .group(:id)
-                  .order('COUNT(likes.id) DESC')
+                  .order('COUNT(likes.id) DESC, tasks.created_at ASC')
                   .limit(10)
   end
 
