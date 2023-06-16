@@ -4,8 +4,14 @@
 
       <h1 class="white-text">ベストクエスト</h1>
 
-        <% @tasks.each do |task| %>
-          <%= render partial: task %>
+        <% @tasks.each_with_index do |task, index| %>
+          <div class="mb-5">
+            <div class="d-flex">
+              <i class="bi bi-award-fill" style="color: #ffc107; font-size: 2em;"></i>
+              <h1 class="white-text ml-2"><%= index + 1 %>位</h3>
+            </div>
+            <%= render partial: task %>
+          </div>
         <% end %>
 
     </div>
