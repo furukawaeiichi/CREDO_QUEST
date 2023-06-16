@@ -1,0 +1,10 @@
+<h1>いいねランキング</h1>
+
+<ol>
+  <% @tasks.each do |task| %>
+    <li>
+      <p>タスク名: <%= task.content %></p>
+      <p>いいね数: <%= task.likes.count %></p>
+    </li>
+  <% end %>
+</ol>
