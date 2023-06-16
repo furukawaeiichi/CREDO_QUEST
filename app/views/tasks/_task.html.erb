@@ -28,10 +28,10 @@
     <% if current_user.already_liked?(task) %>
       <% like = current_user.likes.find_by(task_id: task.id) %>
       <%= button_to task_like_path(task, like), method: :delete, class: "btn btn-primary", style: "height: 50px;" do %>
-        <span class="text-warning">     <%# いいねすると★マークが黄色くなる %>
-          <i class="bi bi-star-fill"></i>
-          <%= task.likes.count %>
-        </span>
+        <div class="d-inline-block">
+          <i class="bi bi-star-fill" style="color: #ffc107"></i>
+          <span style="color: #ffc107"><%= task.likes.count %></span>
+        </div>
       <% end %>
     <% else %>
       <%= button_to task_likes_path(task), method: :post, class: "btn btn-primary", style: "height: 50px;" do %>
