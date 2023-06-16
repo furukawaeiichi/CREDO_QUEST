@@ -1,10 +1,13 @@
-<h1>いいねランキング</h1>
+<div class="container-fluid px-0 py-5 my-5">
+  <div class="row mx-0">
+    <div class="col px-4 text-center">
 
-<ol>
-  <% @tasks.each do |task| %>
-    <li>
-      <p>タスク名: <%= task.content %></p>
-      <p>いいね数: <%= task.likes.count %></p>
-    </li>
-  <% end %>
-</ol>
+      <h1 class="white-text">ベストクエスト</h1>
+
+        <% @tasks.each do |task| %>
+          <%= render partial: task %>
+        <% end %>
+
+    </div>
+  </div>
+</div>
