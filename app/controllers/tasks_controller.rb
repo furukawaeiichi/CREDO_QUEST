@@ -61,6 +61,15 @@ class TasksController < ApplicationController
     end
   end
 
+  def ranking
+    three_months_ago = 3.months.ago
+    @tasks = Task.left_joins(:likes)
+                  .where('tasks.created_at > ?', three_months_ago)
+                  .group(:id)
+                  .order('COUNT(likes.id) DESC')
+                  .limit(10)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
