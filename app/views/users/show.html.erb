@@ -2,15 +2,39 @@
   <div class="card" style="text-align: center;">
     <img src="<%= @user.image %>" width="100" height="100" style="display: block; margin: auto;">
     <div class="card-body">
+
       <h5 class="card-title"><%= @user.name %></h5>
-      <%# <p class="card-text">勇者/魔法使い/僧侶/弓使い</p> %>
-      <%# <p class="card-text">Level: <%= @lists.sum { |list| list.todos.where(checked: true).count + list.tasks.where(checked: true).count } %></p>
-      <%# <p class="card-text">称号:???</p> %>
+
+      <div class="d-flex justify-content-center gap-3">
+        <%# <p class="card-text">勇者/魔法使い/僧侶/弓使い</p> %>
+        <p class="card-text">Level: <%= @lists.sum { |list| list.todos.where(checked: true).count + list.tasks.where(checked: true).count } %></p>
+        <%# <p class="card-text">称号:???</p> %>
+      </div>
+
       <div class="d-flex justify-content-center gap-3">
         <a href="https://twitter.com/<%= @user.nickname %>"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
         <%# <a href="#"><i class="bi bi-globe2" style="color: #000; font-size: 1.5rem;"></i></a> %>
         <%# <a href="#"><i class="bi bi-github" style="color: #000; font-size: 1.5rem;"></i></a> %>
       </div>
+
+      <div class="progress-bar-group">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Be Open</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Move Fast</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Give First</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Geek Out</div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Take Ownership</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
