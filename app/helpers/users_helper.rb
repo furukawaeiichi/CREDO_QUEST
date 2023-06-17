@@ -6,18 +6,18 @@ module UsersHelper
 
   def list_bar_color(title)
     case title
-    when 'Be Open'
-      'bg-primary'
-    when 'Move Fast'
-      'bg-success'
-    when 'Give First'
-      'bg-info'
-    when 'Geek Out'
-      'bg-warning'
-    when 'Take Ownership'
-      'bg-danger'
+    when "Be Open"
+      "bg-primary"
+    when "Move Fast"
+      "bg-success"
+    when "Give First"
+      "bg-info"
+    when "Geek Out"
+      "bg-warning"
+    when "Take Ownership"
+      "bg-danger"
     else
-      'bg-secondary'
+      "bg-secondary"
     end
   end
 
