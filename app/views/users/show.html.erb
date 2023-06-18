@@ -11,10 +11,31 @@
         <%# <p class="card-text">称号:???</p> %>
       </div>
 
-      <div class="d-flex justify-content-center gap-3">
-        <a href="https://twitter.com/<%= @user.nickname %>"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
-        <%# <a href="#"><i class="bi bi-globe2" style="color: #000; font-size: 1.5rem;"></i></a> %>
-        <%# <a href="#"><i class="bi bi-github" style="color: #000; font-size: 1.5rem;"></i></a> %>
+      <div class="d-flex justify-content-center gap-3" style="align-items: center;">
+        <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
+        <% if @user.github.present? %>
+          <%= link_to @user.github, target: "_blank" do %>
+            <%= content_tag :i, nil, class: "bi bi-github", style: "color: #000; font-size: 1.5rem;" %>
+          <% end %>
+        <% end %>
+        <% if @user.mattermost.present? %>
+          <%= link_to image_tag("mattermost.jpeg", style: "height: 1.5rem;"), @user.mattermost, target: "_blank" %>
+        <% end %>
+        <% if @user.notion.present? %>
+          <%= link_to image_tag("notion.jpeg", style: "height: 1.5rem;"), @user.notion, target: "_blank" %>
+        <% end %>
+        <% if @user.note.present? %>
+          <%= link_to image_tag("note.jpeg", style: "height: 1.2rem;"), @user.note, target: "_blank" %>
+        <% end %>
+        <% if @user.hatena_blog.present? %>
+          <%= link_to image_tag("hatena_blog.jpeg", style: "height: 2.3rem;"), @user.hatena_blog, target: "_blank" %>
+        <% end %>
+        <% if @user.qiita.present? %>
+          <%= link_to image_tag("qiita.jpeg", style: "height: 1.5rem;"), @user.qiita, target: "_blank" %>
+        <% end %>
+        <% if @user.zenn.present? %>
+          <%= link_to image_tag("zenn.jpeg", style: "height: 1.5rem;"), @user.zenn, target: "_blank" %>
+        <% end %>
       </div>
 
       <div class="progress-bar-group">
@@ -31,4 +52,4 @@
   </div>
 </div>
 
-<%= render partial: 'lists/index', locals: { lists: @lists } %>
+<%= render partial: "lists/index", locals: { lists: @lists } %>

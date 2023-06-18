@@ -18,6 +18,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      render :edit, notice: "情報が更新されました！"
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.likes.destroy_all
@@ -25,5 +35,9 @@ class UsersController < ApplicationController
     reset_session
     flash[:success] = "アカウントを削除しました"
     redirect_to root_path, status: :see_other
+  end
+
+  def user_params
+    params.require(:user).permit(:github, :mattermost, :notion, :note, :hatena_blog, :qiita, :zenn)
   end
 end
