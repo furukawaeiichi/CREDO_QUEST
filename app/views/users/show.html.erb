@@ -19,22 +19,22 @@
           <% end %>
         <% end %>
         <% if @user.mattermost.present? %>
-          <%= link_to image_tag("mattermost.jpeg"), @user.mattermost, target: "_blank" %>
+          <%= link_to image_tag("mattermost.jpeg", style: "height: 1.5rem;"), @user.mattermost, target: "_blank" %>
         <% end %>
         <% if @user.notion.present? %>
-          <%= link_to image_tag("notion.jpeg"), @user.notion, target: "_blank" %>
+          <%= link_to image_tag("notion.jpeg", style: "height: 1.5rem;"), @user.notion, target: "_blank" %>
         <% end %>
         <% if @user.note.present? %>
-          <%= link_to image_tag("note.jpeg"), @user.note, target: "_blank" %>
+          <%= link_to image_tag("note.jpeg", style: "height: 1.5rem;"), @user.note, target: "_blank" %>
         <% end %>
         <% if @user.hatena_blog.present? %>
-          <%= link_to image_tag("hatena_blog.jpeg"), @user.hatena_blog, target: "_blank" %>
+          <%= link_to image_tag("hatena_blog.jpeg", style: "height: 1.5rem;"), @user.hatena_blog, target: "_blank" %>
         <% end %>
         <% if @user.qiita.present? %>
-          <%= link_to image_tag("qiita.jpeg"), @user.qiita, target: "_blank" %>
+          <%= link_to image_tag("qiita.jpeg", style: "height: 1.5rem;"), @user.qiita, target: "_blank" %>
         <% end %>
         <% if @user.zenn.present? %>
-          <%= link_to image_tag("zenn.jpeg"), @user.zenn, target: "_blank" %>
+          <%= link_to image_tag("zenn.jpeg", style: "height: 1.5rem;"), @user.zenn, target: "_blank" %>
         <% end %>
       </div>
 
