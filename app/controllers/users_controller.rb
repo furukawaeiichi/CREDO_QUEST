@@ -26,4 +26,8 @@ class UsersController < ApplicationController
     flash[:success] = "アカウントを削除しました"
     redirect_to root_path, status: :see_other
   end
+
+  def user_params
+    params.require(:user).permit(:nickname, :name, :image, :github, :mattermost, :notion, :note, :hatena_blog, :qiita, :zenn)
+  end
 end
