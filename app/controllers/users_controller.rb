@@ -28,6 +28,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:nickname, :name, :image, :github, :mattermost, :notion, :note, :hatena_blog, :qiita, :zenn)
+    params.require(:user).permit(:github, :mattermost, :notion, :note, :hatena_blog, :qiita, :zenn)
   end
 end
