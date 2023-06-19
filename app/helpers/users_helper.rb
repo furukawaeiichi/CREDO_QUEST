@@ -1,6 +1,5 @@
 module UsersHelper
-  def checked_todos_count(list_title)
-    list = List.find_by(title: list_title)
+  def checked_todos_count(list)
     list.todos.where(checked: true).count
   end
 
@@ -22,6 +21,6 @@ module UsersHelper
   end
 
   def progress_percentage(list)
-    (checked_todos_count(list.title).to_f / list.todos.count.to_f) * 100
+    (checked_todos_count(list).to_f / list.todos.count.to_f) * 100
   end
 end
