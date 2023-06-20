@@ -53,6 +53,7 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1 or /tasks/1.json
   def destroy
+    @task.likes.destroy_all
     @task.destroy
 
     respond_to do |format|
