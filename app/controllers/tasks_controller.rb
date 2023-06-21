@@ -51,6 +51,8 @@ class TasksController < ApplicationController
   def destroy
     @task.likes.destroy_all
     @task.destroy
+    @user = @task.user
+    @level = @user.level
     flash.now.notice = "クエストが削除されました！"
   end
 
