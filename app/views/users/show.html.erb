@@ -7,7 +7,7 @@
 
       <div class="d-flex justify-content-center gap-3">
         <%# <p class="card-text">勇者/魔法使い/僧侶/弓使い</p> %>
-        <p class="card-text">Level: <%= @lists.sum { |list| list.todos.where(checked: true).count + list.tasks.where(checked: true).count } %></p>
+        <p id="user_level" class="card-text">Level: <%= @user.level %></p>
         <%# <p class="card-text">称号:???</p> %>
       </div>
 

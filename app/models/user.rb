@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_tasks, through: :likes, source: :task
 
+  def level
+    self.lists.sum { |list| list.todos.where(checked: true).count + list.tasks.where(checked: true).count }
+  end
+
   def already_liked?(task)
     self.likes.exists?(task_id: task.id)
   end
