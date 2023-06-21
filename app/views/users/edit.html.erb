@@ -2,6 +2,10 @@
   <div class="row mx-0">
     <div class="col px-4 text-center">
 
+      <div id="flash-user" class="mb-5">
+        <%= render "shared/flash" %>
+      </div>
+
       <h1 class="white-text mb-4">設定</h1>
 
       <h5 class="white-text">外部リンク登録</h5>
@@ -10,37 +14,37 @@
         <%= form_with(model: @user, local: true) do |form| %>
           <div class="form-floating mb-3">
             <%= form.text_field :github, class: "form-control", id: "github" %>
-            <%= form.label :github, "GitHub" %>
+            <%= form.label :github, "GitHub", for: "github" %>
           </div>
 
           <div class="form-floating mb-3">
             <%= form.text_field :mattermost, class: "form-control", id: "mattermost" %>
-            <%= form.label :mattermost, "Mattermost" %>
+            <%= form.label :mattermost, "Mattermost", for: "mattermost" %>
           </div>
 
           <div class="form-floating mb-3">
             <%= form.text_field :notion, class: "form-control", id: "notion" %>
-            <%= form.label :notion, "Notion" %>
+            <%= form.label :notion, "Notion", for: "notion" %>
           </div>
 
           <div class="form-floating mb-3">
             <%= form.text_field :note, class: "form-control", id: "note" %>
-            <%= form.label :note, "Note" %>
+            <%= form.label :note, "Note", for: "note" %>
           </div>
 
           <div class="form-floating mb-3">
             <%= form.text_field :hatena_blog, class: "form-control", id: "hatena_blog" %>
-            <%= form.label :hatena_blog, "Hatena Blog" %>
+            <%= form.label :hatena_blog, "Hatena Blog", for: "hatena_blog" %>
           </div>
 
           <div class="form-floating mb-3">
             <%= form.text_field :qiita, class: "form-control", id: "qiita" %>
-            <%= form.label :qiita, "Qiita" %>
+            <%= form.label :qiita, "Qiita", for: "qiita" %>
           </div>
 
           <div class="form-floating mb-3">
             <%= form.text_field :zenn, class: "form-control", id: "zenn" %>
-            <%= form.label :zenn, "Zenn" %>
+            <%= form.label :zenn, "Zenn", for: "zenn" %>
           </div>
 
           <div class="actions mb-4">
@@ -49,7 +53,7 @@
         <% end %>
       </div>
 
-      <div class=""mt-4>
+      <div class="mt-4">
         <%= button_to "アカウント削除", @user, method: :delete, data: { turbo_confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-danger" %>
       </div>
 

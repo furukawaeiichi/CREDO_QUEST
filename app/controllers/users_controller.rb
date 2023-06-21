@@ -22,7 +22,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      render :edit, notice: "情報が更新されました！"
+      flash[:notice] = "情報が更新されました！"
+      redirect_to edit_user_path(@user)
     else
       render :edit
     end
