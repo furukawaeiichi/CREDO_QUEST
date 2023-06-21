@@ -1,6 +1,12 @@
-<% if @task %>
-  <%= render "tasks/form", task: @task %>
-<% end %>
+<div id="flash">
+  <%= render "shared/flash" %>
+</div>
+
+<div id="tasks">
+  <% if @task %>
+    <%= render "tasks/form", task: @task %>
+  <% end %>
+</div>
 
 <% @user_tasks.each do |task| %>
   <%= render partial: task %>

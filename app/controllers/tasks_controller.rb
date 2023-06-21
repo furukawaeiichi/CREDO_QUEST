@@ -27,27 +27,19 @@ class TasksController < ApplicationController
     @task = @list.tasks.build(task_params)
     @task.user = current_user
 
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to request.referrer, notice: "クエストが作成されました！一緒にがんばるぞ！" }
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    if @task.save
+      flash.now.notice = "クエストが作成されました！一緒にがんばるぞ！"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to request.referrer, notice: "クエストが更新されました！" }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    if @task.update(task_params)
+      flash.now.notice = "クエストを更新しました！"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -55,11 +47,7 @@ class TasksController < ApplicationController
   def destroy
     @task.likes.destroy_all
     @task.destroy
-
-    respond_to do |format|
-      format.html { redirect_to request.referrer, notice: "クエストが削除されました！", status: :see_other }
-      format.json { head :no_content }
-    end
+    flash.now.notice = "クエストが削除されました！"
   end
 
   def ranking
