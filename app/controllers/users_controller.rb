@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.likes.destroy_all
     @user.destroy
     reset_session
     flash[:success] = "アカウントを削除しました"
