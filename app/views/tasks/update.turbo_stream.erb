@@ -1,2 +1,5 @@
 <%= turbo_stream.replace @task %>
 <%= turbo_stream_flash %>
+<%= turbo_stream.update "user_level" do %>
+  Level: <%= @level %>
+<% end %>

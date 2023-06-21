@@ -3,3 +3,7 @@
   <%= render "form", task: Task.new %>
 <% end %>
 <%= turbo_stream_flash %>
+
+<%= turbo_stream.update "user_level" do %>
+  Level: <%= @level %>
+<% end %>
