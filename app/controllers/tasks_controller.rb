@@ -38,11 +38,10 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1 or /tasks/1.json
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @task.update(task_params)
+      flash.now.notice = "クエストを更新しました！"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
