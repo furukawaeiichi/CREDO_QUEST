@@ -49,10 +49,7 @@ class TasksController < ApplicationController
   def destroy
     @task.likes.destroy_all
     @task.destroy
-
-    respond_to do |format|
-      format.html { redirect_to request.referrer, notice: "クエストが削除されました！", status: :see_other }
-    end
+    flash.now.notice = "クエストが削除されました！"
   end
 
   def ranking
