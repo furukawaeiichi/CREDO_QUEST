@@ -2,19 +2,21 @@
   <div class="row mx-0">
     <div class="col px-4 text-center">
 
-      <div id="flash">
-        <%= render "shared/flash" %>
-      </div>
-
-      <h1 class="white-text">みんなのクエスト</h1>
-
       <%= turbo_frame_tag @task do %>
+
+        <div id="flash" class="mb-5">
+          <%= render "shared/flash" %>
+        </div>
+
+        <h1 class="white-text">みんなのクエスト</h1>
 
         <%= render "form", task: @task %>
 
-        <% @tasks.each do |task| %>
-          <%= render partial: task %>
-        <% end %>
+        <div id="tasks">
+          <% @tasks.each do |task| %>
+            <%= render partial: task %>
+          <% end %>
+        </div>
 
       <% end %>
 

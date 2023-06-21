@@ -27,12 +27,10 @@ class TasksController < ApplicationController
     @task = @list.tasks.build(task_params)
     @task.user = current_user
 
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to request.referrer, notice: "クエストが作成されました！一緒にがんばるぞ！" }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @task.save
+      flash.now.notice = "クエストが作成されました！一緒にがんばるぞ！"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
