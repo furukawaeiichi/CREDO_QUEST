@@ -18,6 +18,10 @@
     <% end %>
   </ul>
 
+  <div id="flash">
+    <%= render "shared/flash" %>
+  </div>
+
   <div class="tab-content" id="pills-tabContent">
     <% lists.each_with_index do |list, index| %>
       <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="pills-<%= list.title.parameterize %>" role="tabpanel" aria-labelledby="pills-<%= list.title.parameterize %>-tab">
