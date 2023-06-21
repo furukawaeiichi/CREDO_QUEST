@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :todos, through: :lists
   has_many :tasks, through: :lists
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_tasks, through: :likes, source: :task
 
   def already_liked?(task)
