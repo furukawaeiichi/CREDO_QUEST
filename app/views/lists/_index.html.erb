@@ -18,6 +18,10 @@
     <% end %>
   </ul>
 
+  <div id="flash">
+    <%= render "shared/flash" %>
+  </div>
+
   <div class="tab-content" id="pills-tabContent">
     <% lists.each_with_index do |list, index| %>
       <div class="tab-pane fade <%= 'show active' if index.zero? %>" id="pills-<%= list.title.parameterize %>" role="tabpanel" aria-labelledby="pills-<%= list.title.parameterize %>-tab">
@@ -25,13 +29,7 @@
           <%= render 'lists/task', user_tasks: @user_tasks %>
         <% else %>
           <% list.todos.order(:created_at).each_with_index do |todo, index| %>
-            <%= form_with model: [list, todo], data: { turbo_frame: "todo_#{todo.id}" } do |f| %>
-              <div class="list-group-item">
-                Level: <%= "#{index + 1}" %>
-                <%= f.check_box :checked, id: "todo_#{todo.id}", class: "form-check-input me-1", onchange: 'this.form.requestSubmit()' %>
-                <%= f.label :checked, todo.content, for: "todo_#{todo.id}" %>
-              </div>
-            <% end %>
+            <%= render 'todos/todo', todo: todo, list: list, index: index %>
           <% end %>
         <% end %>
       </div>

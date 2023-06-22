@@ -21,22 +21,26 @@ class TasksController < ApplicationController
   def edit
   end
 
-  # POST /tasks or /tasks.json
+  # POST /tasks
   def create
     @list = current_user.lists.find_or_create_by(title: "マイクエスト")
     @task = @list.tasks.build(task_params)
     @task.user = current_user
 
     if @task.save
+      @user = @task.user
+      @level = @user.level
       flash.now.notice = "クエストが作成されました！一緒にがんばるぞ！"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /tasks/1 or /tasks/1.json
+  # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
+      @user = @task.user
+      @level = @user.level
       flash.now.notice = "クエストを更新しました！"
     else
       render :edit, status: :unprocessable_entity
@@ -47,6 +51,8 @@ class TasksController < ApplicationController
   def destroy
     @task.likes.destroy_all
     @task.destroy
+    @user = @task.user
+    @level = @user.level
     flash.now.notice = "クエストが削除されました！"
   end
 
