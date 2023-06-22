@@ -3,14 +3,13 @@ class TodosController < ApplicationController
   before_action :authorize_user, only: [:update]
 
   def update
-    respond_to do |format|
-      if @todo.update(todo_params)
-        format.turbo_stream
-        format.html { redirect_to @todo.list, notice: "クエストが更新されました！" }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
-      end
+    @list = @todo.list
+    if @todo.update(todo_params)
+      @user = @list.user
+      @level = @user.level
+      flash.now.notice = "公式クエストを更新しました！"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
