@@ -7,6 +7,7 @@ class TodosController < ApplicationController
     if @todo.update(todo_params)
       @user = @list.user
       @level = @user.level
+      @lists = @user.lists
       flash.now.notice = "公式クエストを更新しました！"
     else
       render :edit, status: :unprocessable_entity

@@ -7,3 +7,15 @@
 <%= turbo_stream.update "user_level" do %>
   Level: <%= @level %>
 <% end %>
+
+<%= turbo_stream.update "progress_bar" do %>
+  <div class="progress-bar-group">
+    <% @lists.each do |list| %>
+      <% unless list.title == "マイクエスト" %>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated <%= list_bar_color(list.title) %>" role="progressbar" style="width: <%= progress_percentage(list) %>%" aria-valuenow="<%= progress_percentage(list) %>" aria-valuemin="0" aria-valuemax="100"><%= list.title %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
