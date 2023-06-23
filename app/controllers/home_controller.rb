@@ -4,4 +4,10 @@ class HomeController < ApplicationController
 
   def special_thanks
   end
+
+  def terms
+  end
+
+  def privacy_policy
+  end
 end
