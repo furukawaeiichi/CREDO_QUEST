@@ -7,5 +7,16 @@
 
     <%= render @task %>
 
+    <% if @task.likes.any? %>
+      <div class="d-flex align-items-center mt-3">
+        <i class="bi bi-star-fill" style="color: #ffc107"></i>
+        <% @task.likes.each do |like| %>
+          <%= link_to user_path(like.user), target: "_blank" do %>
+            <%= image_tag like.user.image, width: 30, height: 30, style: 'display: block; margin: auto; border-radius: 50%;' %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>
