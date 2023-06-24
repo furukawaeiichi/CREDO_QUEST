@@ -7,14 +7,5 @@
 
     <%= render @task %>
 
-    <div>
-      <%= link_to "クエスト一覧", tasks_path %>
-
-      <% if current_user == @task.user %>
-        | <%= link_to "クエスト編集", edit_task_path(@task) %>
-          <%= button_to "クエスト削除", @task, method: :delete %>
-      <% end %>
-    </div>
-
   </div>
 </div>
