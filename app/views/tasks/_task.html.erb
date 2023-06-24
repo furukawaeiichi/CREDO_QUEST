@@ -1,7 +1,7 @@
 <%= turbo_frame_tag task do %>
   <div class="input-group mb-0">
     <%= link_to user_path(task.list.user), target: "_blank" do %>
-      <img src="<%= task.list.user.image %>" width="50" height="50" style="display: block; margin: auto;">
+      <%= image_tag task.list.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
     <% end %>
 
     <%= form_with model: task, html: { data: { turbo_frame: task.id } }, class: "input-group-text" do |form| %>
