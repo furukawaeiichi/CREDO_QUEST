@@ -1,7 +1,7 @@
 <%= turbo_frame_tag task do %>
   <div class="input-group mb-0">
-    <%= link_to user_path(task.list.user) do %>
-      <img src="<%= task.list.user.image %>" width="50" height="50" style="display: block; margin: auto;">
+    <%= link_to user_path(task.list.user), target: "_blank" do %>
+      <%= image_tag task.list.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
     <% end %>
 
     <%= form_with model: task, html: { data: { turbo_frame: task.id } }, class: "input-group-text" do |form| %>
@@ -10,7 +10,8 @@
 
     <input type="text" class="form-control" style="overflow: auto; aria-label="Text input with checkbox" value="<%= task.content %>" readonly>
 
-    <%# link_to "詳細", task, class: "btn btn-secondary" %>
+    <%= link_to "詳細", task, class: "btn btn-secondary", target: "_blank" %>
+
     <% if current_user == task.user %>
       <%= link_to edit_task_path(task), class: "btn btn-secondary" do %>
         <i class="bi bi-pencil-square"></i>

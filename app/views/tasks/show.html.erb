@@ -7,14 +7,21 @@
 
     <%= render @task %>
 
-    <div>
-      <%= link_to "クエスト一覧", tasks_path %>
-
-      <% if current_user == @task.user %>
-        | <%= link_to "クエスト編集", edit_task_path(@task) %>
-          <%= button_to "クエスト削除", @task, method: :delete %>
-      <% end %>
+    <div class="mt-4 d-flex justify-content-center">
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="クエストを投稿しました！応援してね✨" data-via="CREDO_QUEST" data-hashtags="CREDO_QUEST,RUNTEQ" data-related="" data-lang="ja" data-dnt="true" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <%# <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="クエストを投稿しました！応援してね✨" data-url="https://credo-quest.com" data-via="CREDO_QUEST" data-hashtags="CREDO_QUEST,RUNTEQ" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> %>
     </div>
+
+    <% if @task.likes.any? %>
+      <div class="d-flex align-items-center justify-content-center mt-3">
+        <i class="bi bi-star-fill" style="color: #ffc107; font-size: 1.5rem;"></i>
+        <% @task.likes.each do |like| %>
+          <%= link_to user_path(like.user), target: "_blank" do %>
+            <%= image_tag like.user.image, width: 30, height: 30, style: 'display: block; margin: auto; border-radius: 50%;' %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
 
   </div>
 </div>
