@@ -11,3 +11,7 @@
 <div class="d-grid gap-2">
   <%= link_to "みんなのクエストを見る", tasks_path, method: :get, class: "btn btn-secondary" %>
 </div>
+
+<div class="d-flex justify-content-center mt-5">
+  <%= paginate @user_tasks %>
+</div>

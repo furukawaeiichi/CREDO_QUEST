@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @task = Task.new                            # 新しいタスクを作成
     end
     @lists = @user.lists
-    @user_tasks = @user.tasks.order(id: :desc)    # ユーザーのタスクを新しい順に並べる
+    @user_tasks = @user.tasks.order(id: :desc).page(params[:page])    # ユーザーのタスクを新しい順に並べる
   end
 
   def edit
