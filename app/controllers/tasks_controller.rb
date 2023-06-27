@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.order(id: :desc).all
+    @tasks = Task.order(id: :desc).page(params[:page])
     @task = Task.new
     @like = Like.new
   end
