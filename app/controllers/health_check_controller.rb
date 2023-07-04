@@ -1,4 +1,5 @@
-class Api::V1::HealthCheckController < ActionController::API
+
+class HealthCheckController < ApplicationController
   def index
     render json: { status: 'ok' }, status: :ok
   end
